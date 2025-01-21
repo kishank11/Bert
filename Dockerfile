@@ -19,7 +19,7 @@ RUN pip install --upgrade pip setuptools wheel
 RUN pip install jupyter
 
 # Copy your notebook into the container
-COPY notebook.ipynb /app/notebook.ipynb
+COPY retrieval-evaluation-notebook.ipynb /app/notebook.ipynb
 
 # Set the default command to execute the notebook
 CMD ["jupyter", "nbconvert", "--to", "notebook", "--execute", "/app/notebook.ipynb"]

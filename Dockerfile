@@ -21,8 +21,7 @@ RUN pip install jupyter
 # Copy your notebook into the container
 COPY retrieval-evaluation-notebook.ipynb /app/notebook.ipynb
 
-# Set the default command to execute the notebook
-CMD ["jupyter", "nbconvert", "--to", "notebook", "--execute", "/app/notebook.ipynb"]
+
 
 # Set environment variables for Java
 ENV JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
@@ -30,7 +29,6 @@ ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
 # Copy the rest of the application code into the container
 COPY . .
-
-# Specify the default command to run your application
-CMD ["python", "main.py"]
+# Set the default command to execute the notebook
+CMD ["jupyter", "nbconvert", "--to", "notebook", "--execute", "/app/notebook.ipynb"]
 

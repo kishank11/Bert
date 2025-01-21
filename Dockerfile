@@ -20,6 +20,13 @@ RUN pip install --upgrade pip \
 # Install additional dependencies for PyTerrier and other tools
 RUN pip install git+https://github.com/terrier-org/pyterrier_colbert.git
 
+
+RUN apt-get update && apt-get install -y \
+    git \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+    
 # Set environment variables for Java
 ENV JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 ENV PATH="${JAVA_HOME}/bin:${PATH}"

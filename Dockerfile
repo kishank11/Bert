@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
 
 # Install Python dependencies
 RUN pip install --upgrade pip
-RUN pip install tira ir-datasets 'python-terrier==0.10.0' transformers torch tqdm sklearn
+RUN pip install tira ir-datasets 'python-terrier==0.10.0' 
 
 # Copy script into the container
 COPY script.py /app/script.py

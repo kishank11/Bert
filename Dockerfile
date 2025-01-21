@@ -15,7 +15,6 @@ RUN apt-get update && apt-get install -y \
 RUN pip install --upgrade pip setuptools wheel
 
 # Install PyTerrier ColBERT from GitHub
-RUN pip install --verbose git+https://github.com/terrier-org/pyterrier_colbert.git
 
 # Set environment variables for Java
 ENV JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"

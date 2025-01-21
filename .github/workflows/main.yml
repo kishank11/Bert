@@ -37,6 +37,6 @@ jobs:
             --input-dataset "ir-lab-wise-2024/subsampled-ms-marco-deep-learning-20241201-training" \
             --image registry.webis.de/code-research/tira/tira-user-ir-wise-24-infobees/github-action-submission:0.0.1 \
             --command "-i ir-lab-wise-2024/subsampled-ms-marco-deep-learning-20241201-training -o /output" \
-            --push true \
+            --push true --tira-vm-id  \
             --fail-if-output-is-empty
 

@@ -15,6 +15,14 @@ RUN apt-get update && apt-get install -y \
 RUN pip install --upgrade pip setuptools wheel
 
 # Install PyTerrier ColBERT from GitHub
+# Install Jupyter
+RUN pip install jupyter
+
+# Copy your notebook into the container
+COPY notebook.ipynb /app/notebook.ipynb
+
+# Set the default command to execute the notebook
+CMD ["jupyter", "nbconvert", "--to", "notebook", "--execute", "/app/notebook.ipynb"]
 
 # Set environment variables for Java
 ENV JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"

@@ -1,0 +1,8 @@
+tira>=0.0.139
+ir-datasets
+python-terrier==0.10.0
+transformers
+torch
+ipywidgets
+tqdm
+pandas

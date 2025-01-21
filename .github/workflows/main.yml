@@ -5,41 +5,37 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
-      # Checkout the repository
+      # Step 1: Checkout the repository
       - name: Checkout
         uses: actions/checkout@v3
 
-      # Set up QEMU for cross-platform builds
+      # Step 2: Set up QEMU for cross-platform builds
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
-      # Set up Docker Buildx
+      # Step 3: Set up Docker Buildx
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      # Set up Python environment
-      - name: Set up Dependencies
+      # Step 4: Set up Python environment
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: 3.8
 
-      # Install required Python packages
-      - name: Install Required Python Packages
+      # Step 5: Install required Python packages
+      - name: Install required Python packages
         run: |
           python -m pip install --upgrade pip
           pip install tira
 
-      # Build the Docker image
+      # Step 6: Build the Docker image
       - name: Build Docker Image
         run: |
           docker build -t registry.webis.de/code-research/tira/tira-user-ir-wise-24-infobees/github-action-submission:0.0.1 -f ./Dockerfile .
 
-      # Debug Docker image build
-      - name: List Docker Images
-        run: docker images
-
-      # Run TIRA command to upload and push the image
-      - name: Test and Push Image to TIRA
+      # Step 7: Push and execute with TIRA
+      - name: Run TIRA Command
         env:
           TIRA_CLIENT_TOKEN: ${{ secrets.TIRA_CLIENT_TOKEN }}
         run: |

@@ -21,5 +21,5 @@ jobs:
           pip3 install tira
       - name: Build, test, and upload image
         run: |
-          docker build -t registry.webis.de/code-research/tira/tira-user-ir-wise-24-infobees/github-action-submission:0.0.1 -f ${{ github.workspace }}/Dockerfile ${{ github.workspace }}
+          docker build -t registry.webis.de/code-research/tira/tira-user-ir-wise-24-infobees/github-action-submission:0.0.1 -f ./Dockerfile .
           tira-run --tira-client-token ${{ secrets.TIRA_CLIENT_TOKEN }} --input-dataset ir-lab-wise-2024/subsampled-ms-marco-deep-learning-20241201-training --image registry.webis.de/code-research/tira/tira-user-ir-wise-24-infobees/github-action-submission:0.0.1 --push true --fail-if-output-is-empty
